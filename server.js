@@ -90,5 +90,5 @@ res.redirect('/products');
 
                  var port = process.env.PORT || 8080;
                  app.listen(port, function() {
-                 console.log('App is running onxxx http://localhost:' + port);
+                 console.log('App is running onx http://localhost:' + port);
                  });

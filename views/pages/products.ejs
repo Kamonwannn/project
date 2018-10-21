@@ -6,8 +6,9 @@
                         <th>ID</th>
                         <th>Title</th>
                         <th>Price</th>
-                        <th></th>
-                    </tr>
+                        <% products.forEach(function(product) { %>
+                        <th><a class="btn btn-primary btn-lg" href="/products/<%= product.id %>" role="button">Up date</a></th>
+                    </tr> <% }); %>
                 </thead>
                 <tbody>
                  <% products.forEach(function(product) { %>

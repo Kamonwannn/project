@@ -88,29 +88,6 @@ app.get('/product_delete/:pid',function (req, res) {
 
 
 
-//insert data product
-
-app.post('/product/insert_product', function (req, res) {
-    var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var time =req.body.time;
-    var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}', '${title}', '${price}', '${time}')`;
-    //db.none
-    console.log('UPDATE:' + sql);
-    db.any(sql)
-        .then(function (data) {
-            console.log('DATA:' + data);
-            res.redirect('pages/products')
-        })
-
-        .catch(function (error) {
-            console.log('ERROR:' + error);
-        })
-});
-
-
-
      
 //delete data product
 app.post('/products/delete', function(req, res) {
@@ -124,7 +101,7 @@ app.post('/products/delete', function(req, res) {
          });   
 
 
-         //add  New Product
+ //add  New Product
 
 app.post('/product/insert_product', function (req, res) {
     var id = req.body.id;

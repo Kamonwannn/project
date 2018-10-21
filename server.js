@@ -157,6 +157,8 @@ app.get('/insert_product', function (req, res) {
     res.render('pages/insert_product',{ time: time});
 });
 
+
+
    //Display all user
    app.get('/users', function(req, res) {
     var id = req.params.id;
@@ -217,6 +219,33 @@ app.get('/user_delete/:pid',function (req, res) {
     })
  });
 
+
+ //add user
+
+app.post('/user/insert_user', function (req, res) {
+    var id = req.body.id;
+    var email =req.body.email;
+    var password =req.body.password;
+    var time =req.body.time;
+    var sql = `INSERT INTO users (id,email,password,created_at) VALUES ('${id}', '${email}', '${password}', '${time}')`;
+    //db.none
+    console.log('UPDATE:' + sql);
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/users')
+        })
+
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
+
+//time add user
+app.get('/insert_user', function (req, res) {
+    var time = moment().format();
+    res.render('pages/insert_user',{ time: time});
+});
 
                  ///localhost
                  var port = process.env.PORT || 8080;

@@ -245,7 +245,7 @@ app.post('/users/update',function (req,res) {
     // res.send(sql)
     //db.none
     db.query(sql);
-        res.redirect('/users')    
+        res.redirect('pages/users')    
     db.close();
     })
 
@@ -263,7 +263,7 @@ app.post('/user/insert_user', function (req, res) {
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('/users')
+            res.redirect('pages/users')
         })
 
         .catch(function (error) {

@@ -6,13 +6,13 @@
                         <th>ID</th>
                         <th>Title</th>
                         <th>Price</th>
-                        <% products.forEach(function(product) { %>
+                        <% products.(function(product) { %>
                         <th><a class="btn btn-primary btn-lg" href="/products/<%= product.id %>" role="button">Insert</a></th>
-                    </tr> 
+                    </tr>  <% }); %>
                 </thead>
                 <tbody>
                
-                    <tr>
+                    <tr> <% products.forEach(function(product) { %>
                         <td scope="row"><%= product.id %></td>
                         <td><%= product.title %></td>
                         <td><%= product.price %></td>

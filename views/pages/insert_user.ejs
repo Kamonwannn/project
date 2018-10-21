@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+    <h1>Add user</h1>
+ <form action="/user/insert_user" method="post">
+<div class="form-group">
+  <label for="id">ID</label>
+  <input type="number"
+    class="form-control" name="id" id="" aria-describedby="helpId" placeholder=""value="">
+  <small id="helpId" class="form-text text-muted">ID</small> 
+</div>
+
+  <div class="form-group">
+    <label for="email">email</label>
+    <input type="text"
+      class="form-control" name="email" id="" aria-describedby="helpId" placeholder=""value="">
+    <small id="helpId" class="form-text text-muted">Email</small>
+  </div>
+
+  <div class="form-group">
+    <label for="password">password</label>
+    <input type="text"
+      class="form-control" name="password" id="" aria-describedby="helpId" placeholder=""value="">
+    <small id="helpId" class="form-text text-muted">Password</small>
+    </div>
+    
+
+    <div class="form-group">
+        <label for="created_at">Created_At</label>
+        <input type="text" class="form-control" value="<%= time %>" name="time" id="" aria-describedby="helpId" placeholder="" >
+        <small id="helpId" class="form-text text-muted">Created_At</small>
+      </div>
+
+
+    <a name="" id="" class="btn " href="/users" role="button">Cancel</a>
+    <button type="submit" class="btn btn-success">Save</button>
+    
+
+</from>
+
+  <% include ../partials/footer %>

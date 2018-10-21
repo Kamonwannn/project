@@ -130,6 +130,33 @@ app.post('/products/delete', function(req, res) {
          });   
 
 
+         //add  New Product naja
+
+app.post('/product/insert_product', function (req, res) {
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var time =req.body.time;
+    var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}', '${title}', '${price}', '${time}')`;
+    //db.none
+    console.log('UPDATE:' + sql);
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/products')
+        })
+
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
+
+//time add product
+app.get('/insert_product', function (req, res) {
+    var time = moment().format();
+    res.render('pages/insert_product',{ time: time});
+});
+
    //Display all user
    app.get('/users', function(req, res) {
     var id = req.params.id;

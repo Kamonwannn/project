@@ -68,7 +68,7 @@ db.close();
 
      
 //insert data product
-app.post('/product/inst_product', function(req, res) {
+app.post('/products/insert', function(req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;

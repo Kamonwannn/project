@@ -73,7 +73,8 @@ app.get('/product/products_insert', function(req, res) {
     var title = req.body.title;
     var price = req.body.price;
     var time =req.body.time;
-    var sql = `update products set title = '${title}',price=${price} where id = ${id}` ;
+    var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}', '${title}', '${price}', '${time}')`;
+    //db.none
     db.query(sql);
     res.redirect('/products');
     db.close();

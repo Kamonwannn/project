@@ -68,9 +68,7 @@ db.close();
 
      
 //insert data product
-app.get('/insert_product/togo', function(req, res) {
-    res.render('pages/insert_product',{})};
-    
+
 app.post('/product/insert_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;

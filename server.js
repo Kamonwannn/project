@@ -220,6 +220,21 @@ app.get('/user_delete/:pid',function (req, res) {
  });
 
 
+ //update user
+
+app.post('/users/update',function (req,res) {
+    var id =req.body.id;
+    var email =req.body.email;
+    var password =req.body.password;
+    var sql=`update users set email='${email}',password='${password}' where id=${id}`;
+    // res.send(sql)
+    //db.none
+    db.query(sql);
+        res.redirect('/users')    
+    db.close();
+    })
+
+
  //add user
 
 app.post('/user/insert_user', function (req, res) {

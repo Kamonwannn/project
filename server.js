@@ -124,8 +124,8 @@ app.post('/product/insert_product', function (req, res) {
 
 //time add product
 app.get('/insert_product', function (req, res) {
-    var time = moment().format();
-    res.render('pages/insert_product',{ time: time});
+    
+    res.render('pages/insert_product');
 });
 
 

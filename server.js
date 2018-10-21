@@ -68,25 +68,25 @@ db.close();
 
      
 //insert data product
-app.post('/products/insert', function(req, res) {
+app.post('/product/insert_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
     var time =req.body.time;
     var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}', '${title}', '${price}', '${time}')`;
-    
+    //db.none
     console.log('UPDATE:' + sql);
-    db.query(sql)
-    .then(function (data) {
-        console.log('DATA:' + data);
-        res.redirect('/products')
-        db.close();
-    })
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/products')
+        })
 
-    .catch(function (error) {
-        console.log('ERROR:' + error);
-    })
-});  
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
+
 
      
 //delete data product

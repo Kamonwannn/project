@@ -26,6 +26,42 @@
     <small id="helpId" class="form-text text-muted">Price</small>
     </div>
     
+    <div class="gj-margin-top-10">
+        <form class="display-inline">
+            <label for="ddlLanguage">Language:</label>
+            <select id="ddlLanguage">
+                <option value="en-us">English</option>
+                <option value="fr-fr">French</option>
+                <option value="bg-bg">Bulgarian</option>
+                <option value="de-de" selected="selected">German</option>
+                <option value="pt-br">Portuguese (Brazil)</option>
+                <option value="ru-ru">Russian</option>
+                <option value="es-es">Spanish</option>
+                <option value="it-it">Italian</option>
+            </select>
+        </form>
+    </div>
+    <div class="gj-clear-both"></div>
+    <div class="gj-margin-top-10">
+        <input id="datepicker" width="276" />
+    </div>
+
+    <script type="text/javascript">
+        var datepicker, config;
+        config = {
+            locale: 'de-de',
+            uiLibrary: 'bootstrap4'
+        };
+        $(document).ready(function () {
+            datepicker = $('#datepicker').datepicker(config);
+            $('#ddlLanguage').on('change', function () {
+                var newLang = $(this).val();
+                config.locale = newLang;
+                datepicker.destroy();
+                datepicker = $('#datepicker').datepicker(config);
+            });
+        });
+    </script>
 
       
     <button type="submit" class="btn btn-success">Save</button>

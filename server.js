@@ -89,9 +89,10 @@ app.post('/product/insert_product', function (req, res) {
 });
 
 
-app.get('/insert_product:time', function (req, res) {
+//
+app.get('/insert_user', function (req, res) {
     var time = moment().format();
-    res.render('pages/insert_product',{ time: time});
+    res.render('pages/insert_user',{ time: time});
 });
 
 

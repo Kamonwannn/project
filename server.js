@@ -72,6 +72,7 @@ app.get('/product/products_insert', function(req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
+    var time =req.body.time;
     var sql = `update products set title = '${title}',price=${price} where id = ${id}` ;
     db.query(sql);
     res.redirect('/products');

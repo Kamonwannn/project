@@ -62,7 +62,7 @@ var title = req.body.title;
 var price = req.body.price;
 var sql = `update products set title = '${title}',price=${price} where id = ${id}` ;
 db.query(sql);
-res.redirect('/products');
+res.redirect('pages/products');
 db.close();
      });   
 
@@ -77,7 +77,7 @@ app.get('/product_delete/:pid',function (req, res) {
     db.any(sql)
         .then(function(data){
             console.log('DATA:'+data);
-            res.redirect('/products');
+            res.redirect('pages/products');
     
         })
         .catch(function(data){
@@ -101,7 +101,7 @@ app.post('/product/insert_product', function (req, res) {
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('/products')
+            res.redirect('pages/products')
         })
 
         .catch(function (error) {
@@ -119,7 +119,7 @@ app.post('/products/delete', function(req, res) {
     var price = req.body.price;
     var sql = `DELETE FROM users  where id = ${id}` ;
     db.query(sql);
-    res.redirect('/products');
+    res.redirect('pages/products');
     db.close();
          });   
 
@@ -137,7 +137,7 @@ app.post('/product/insert_product', function (req, res) {
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('/products')
+            res.redirect('pages/products')
         })
 
         .catch(function (error) {

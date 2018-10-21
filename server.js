@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
             if(id){
                 sql += ' where id ='+id;
             }
-       db.any(sql)
+       db.any(sql)//connectdb
         .then(function(data){
             console.log('DATA:'+data);
             res.render('pages/products',{products: data})
@@ -41,6 +41,8 @@ app.get('/', function(req, res) {
 
         
     });
+    
+    //ที่เราเลือกโปรดัก product:pid
     app.get('/products/:pid', function(req, res) {
         var pid = req.params.pid;
         var sql='select * from products where id =' + pid;
@@ -54,17 +56,17 @@ app.get('/', function(req, res) {
     });
 
 //update data
-app.post('/product/update', function(req, res) {
+app.post('/products/update', function(req, res) {
 var id = req.body.id;
 var title = req.body.title;
 var price = req.body.price;
-var sql = `update product set title = ${title},price=${price} where id = ${id}` ;
-
+var sql = `update product set title = '${title}',price=${price} where id = ${id}` ;
+db.query(sql);
 
 //db.none
-
-console.log('UPDATE:' + sql);
+// console.log('UPDATE:' + sql);
 res.redirect('/products');
+db.close();
      });   
 
 
@@ -88,6 +90,8 @@ res.redirect('/products');
      
                  });
 
+
+                 ///localhost
                  var port = process.env.PORT || 8080;
                  app.listen(port, function() {
                  console.log('App is running onxxx http://localhost:' + port);

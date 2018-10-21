@@ -66,14 +66,9 @@ res.redirect('/products');
 db.close();
      });   
 
-     //into insertpage
-     app.get('product/into', function(req, res) {
-        res.render('pages/products_insert');
-            
-        });
      
 //insert data product
-app.get('/product/insert', function(req, res) {
+app.get('/product/products_insert', function(req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;

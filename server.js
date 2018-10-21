@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
         res.render('pages/about',{fullname : name, hobbies:hobbies,bdate: bdate});
             
         });
-        
+
     //Display all products
     app.get('/products', function(req, res) {
         var id = req.param('id');
@@ -62,12 +62,21 @@ var title = req.body.title;
 var price = req.body.price;
 var sql = `update products set title = '${title}',price=${price} where id = ${id}` ;
 db.query(sql);
-//db.none
-// console.log('UPDATE:' + sql);
 res.redirect('/products');
 db.close();
      });   
 
+     
+//delete data product
+app.post('/products/delete', function(req, res) {
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `DELETE FROM users  where id = ${id}` ;
+    db.query(sql);
+    res.redirect('/users');
+    db.close();
+         });   
 
 
    //Display all user

@@ -159,6 +159,27 @@ app.get('/insert_product', function (req, res) {
 
 
 
+//report Products 
+app.get('/product_report', function (req, res) {
+    var id = req.param('id');
+    var sql = 'select* from products ORDER BY Price DESC limit 50';
+    if (id) {
+        sql += ' where id =' + id;
+    }
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.render('pages/product_report', { products: data })
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
+});
+
+
+
    //Display all user
    app.get('/users', function(req, res) {
     var id = req.params.id;

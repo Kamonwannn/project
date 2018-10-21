@@ -15,9 +15,9 @@ app.get('/', function(req, res) {
     });
 
     app.get('/about', function(req, res) {
-        var name = ['BUBBLE'];
-        var hobbies = ['Music','Movie','Programming'];
-        var bdate ='27/03/1997';
+        var name = ['Kamonwan Plaisophon'];
+        var hobbies = ['Drawing','Movie','Reading'];
+        var bdate ='07/07/1997';
         res.render('pages/about',{fullname : name, hobbies:hobbies,bdate: bdate});
             
         });

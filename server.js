@@ -68,6 +68,12 @@ db.close();
 
      
 //insert data product
+app.get('/insert_product', function (req, res) {
+    var time = moment().format();
+    res.render('pages/insert_product',{ time: time});
+});
+    
+    
 
 app.post('/product/insert_product', function (req, res) {
     var id = req.body.id;

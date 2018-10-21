@@ -171,6 +171,24 @@ app.get('/users/:id', function(req, res) {
   });
 
   
+  // Delete user
+app.get('/user_delete/:pid',function (req, res) {
+    var id = req.params.pid;
+    var sql = 'DELETE FROM users';
+    if (id){
+            sql += ' where id ='+ id;
+    }
+    db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.redirect('/users');
+    
+        })
+        .catch(function(data){
+                console.log('ERROR:'+console.error);
+                
+    })
+ });
 
 
                  ///localhost

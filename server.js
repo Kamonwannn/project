@@ -110,12 +110,6 @@ app.post('/product/insert_product', function (req, res) {
 });
 
 
-//
-app.get('/insert_user', function (req, res) {
-    var time = moment().format();
-    res.render('pages/insert_user',{ time: time});
-});
-
 
      
 //delete data product
@@ -130,7 +124,7 @@ app.post('/products/delete', function(req, res) {
          });   
 
 
-         //add  New Product naja
+         //add  New Product
 
 app.post('/product/insert_product', function (req, res) {
     var id = req.body.id;

@@ -28,7 +28,7 @@ app.get('/', function(req, res) {
         var sql='select* from products';
         
             if(id){
-                sql += ' where id ='+id;
+                sql += ' where id ='+id +' order by id ASC';
             }
        db.any(sql)//connectdb
         .then(function(data){

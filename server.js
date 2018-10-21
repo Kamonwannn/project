@@ -21,8 +21,8 @@ app.get('/', function(req, res) {
         res.render('pages/about',{fullname : name, hobbies:hobbies,bdate: bdate});
             
         });
+        
     //Display all products
-
     app.get('/products', function(req, res) {
         var id = req.param('id');
         var sql='select* from products';
@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
         
     });
     
-    //ที่เราเลือกโปรดัก product:pid
+    //selecte product:pid
     app.get('/products/:pid', function(req, res) {
         var pid = req.params.pid;
         var sql='select * from products where id =' + pid;
@@ -55,14 +55,13 @@ app.get('/', function(req, res) {
         })
     });
 
-//update data
+//update data product
 app.post('/products/update', function(req, res) {
 var id = req.body.id;
 var title = req.body.title;
 var price = req.body.price;
 var sql = `update products set title = '${title}',price=${price} where id = ${id}` ;
 db.query(sql);
-
 //db.none
 // console.log('UPDATE:' + sql);
 res.redirect('/products');

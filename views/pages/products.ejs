@@ -7,11 +7,11 @@
                         <th>Title</th>
                         <th>Price</th>
                         <% products.forEach(function(product) { %>
-                        <th><a class="btn btn-primary btn-lg" href="/products/<%= product.id %>" role="button">Up date</a></th>
-                    </tr> <% }); %>
+                        <th><a class="btn btn-primary btn-lg" href="/products/<%= product.id %>" role="button">Insert</a></th>
+                    </tr> 
                 </thead>
                 <tbody>
-                 <% products.forEach(function(product) { %>
+               
                     <tr>
                         <td scope="row"><%= product.id %></td>
                         <td><%= product.title %></td>

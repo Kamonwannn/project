@@ -26,6 +26,7 @@ app.get('/', function(req, res) {
     app.get('/products', function(req, res) {
         var id = req.param('id');
         var sql='select* from products';
+        
             if(id){
                 sql += ' where id ='+id;
             }

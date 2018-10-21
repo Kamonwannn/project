@@ -74,7 +74,7 @@ app.post('/products/delete', function(req, res) {
     var price = req.body.price;
     var sql = `DELETE FROM users  where id = ${id}` ;
     db.query(sql);
-    res.redirect('/users');
+    res.redirect('/products');
     db.close();
          });   
 

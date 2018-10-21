@@ -172,7 +172,7 @@ app.get('/product_report', function (req, res) {
 
 });
 
-
+// ------------------------------------------------------------------------------
 
    //Display all user
    app.get('/users', function(req, res) {
@@ -276,6 +276,22 @@ app.get('/insert_user', function (req, res) {
     var time = moment().format();
     res.render('pages/insert_user',{ time: time});
 });
+
+
+//report user
+app.get('/user_report', function (req, res) {
+    db.any('select * from users ORDER BY  ID ASC limit 50', )
+        .then(function (data) {
+            console.log('DATA' + data);
+            res.render('pages/user_report', { users: data })
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
+});
+
 
                  ///localhost
                  var port = process.env.PORT || 8080;

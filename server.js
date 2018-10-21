@@ -225,7 +225,7 @@ app.get('/user_delete/:pid',function (req, res) {
     db.any(sql)
         .then(function(data){
             console.log('DATA:'+data);
-            res.redirect('/users');
+            res.redirect('page/users');
     
         })
         .catch(function(data){

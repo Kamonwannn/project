@@ -66,7 +66,28 @@ res.redirect('/products');
 db.close();
      });   
 
-     
+    
+     // delete Product 
+app.get('/product_delete/:pid',function (req, res) {
+    var id = req.params.pid;
+    var sql = 'DELETE FROM products';
+    if (id){
+            sql += ' where id ='+ id;
+    }
+    db.any(sql)
+        .then(function(data){
+            console.log('DATA:'+data);
+            res.redirect('/products');
+    
+        })
+        .catch(function(data){
+                console.log('ERROR:'+console.error);
+                
+    })
+ });
+
+
+
 //insert data product
 
 app.post('/product/insert_product', function (req, res) {
@@ -129,7 +150,7 @@ app.post('/products/delete', function(req, res) {
       })
   });
 
-//select  user
+//select  user for update
 app.get('/users/:id', function(req, res) {
     var id = req.params.id;
     var sql = 'select * from users';

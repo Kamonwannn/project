@@ -39,7 +39,6 @@ app.get('/', function(req, res) {
         .catch(function(error){
             console.log('ERROR:'+error);
         })
-
         
     });
     

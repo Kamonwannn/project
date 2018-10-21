@@ -9,7 +9,7 @@
                         <th>Title</th>
                         <th>Price</th>
                         <th>Edit</th>
-                        <th><a name="ad" id="" class="btn btn-success" href="/products_insert<%= product.id %>" role="button">Add Product</a></th>
+                        <th><a name="ad" id="" class="btn btn-success" href="/products_insert" role="button">Add Product</a></th>
                     </tr> 
                 </thead>
                 <tbody id="myTable">
@@ -27,7 +27,7 @@
             </table>
 
 
-            <script>
+            <!-- <script>
                 $(document).ready(function(){
                   $("#myInput").on("keyup", function() {
                     var value = $(this).val().toLowerCase();
@@ -35,6 +35,6 @@
                       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                     });
                   });
-                }); </script>
+                }); </script> -->
 
 <% include ../partials/footer %>

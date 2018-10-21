@@ -111,23 +111,23 @@ app.post('/products/delete', function(req, res) {
 
    //Display all user
    app.get('/users', function(req, res) {
-    var id = req.param('id');
-    var sql='select* from users';
-    
-        if(id){
-            sql += ' where id ='+id;
-        }
-   db.any(sql)//connectdb
-    .then(function(data){
-        console.log('DATA:'+data);
-        res.render('pages/users',{users: data})
-        
-    })
-    .catch(function(error){
-        console.log('ERROR:'+error);
-    })
-    
-});
+    var id = req.params.id;
+    var sql = 'select * from users';
+    if(id){
+        sql += ' where id ='+ id +' order by id ASC';
+    }
+  
+   db.any(sql +' order by id ASC')
+      .then(function(data){
+          console.log('DATA:'+ data);
+          res.render('pages/users',{users : data})
+  
+      })
+      .catch(function(error){
+          console.log('ERROR:'+ error);
+  
+      })
+  });
 
 //select  user
 app.get('/users/:id', function(req, res) {
@@ -149,6 +149,7 @@ app.get('/users/:id', function(req, res) {
       })
   });
 
+  
 
 
                  ///localhost

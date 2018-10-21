@@ -77,9 +77,16 @@ app.get('/product/products_insert', function(req, res) {
     
     console.log('UPDATE:' + sql);
     db.query(sql);
-    res.redirect('/products');
-    db.close();
-         });   
+    .then(function (data) {
+        console.log('DATA:' + data);
+        res.redirect('/products')
+        db.close();
+    })
+
+    .catch(function (error) {
+        console.log('ERROR:' + error);
+    })
+});  
 
      
 //delete data product

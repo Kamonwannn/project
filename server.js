@@ -121,8 +121,8 @@ app.post('/product/insert_product',function (req, res) {
     var title = req.body.title;
     var price = req.body.price;
     var time = req.body.time;
-    var sql =  `INSERT INTO products (id,title,price,created_at)
-    VALUES ('${id}', '${title}', '${price}','${time}')`;
+    var sql =  'INSERT INTO "public"."products" (title,price,created_at) VALUES('title','price','time')';
+    
     db.any(sql)
     .then(function (data) {
         console.log('DATA:' + data);

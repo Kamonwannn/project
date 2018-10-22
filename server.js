@@ -88,19 +88,6 @@ app.get('/product_delete/:pid',function (req, res) {
 
 
 
-     
-//delete data product
-app.post('/products/delete', function(req, res) {
-    var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var sql = `DELETE FROM users  where id = ${id}` ;
-    db.query(sql);
-    res.redirect('pages/products');
-    db.close();
-         });   
-
-
  //add  New Product
 
 app.post('/product/insert_product', function (req, res) {

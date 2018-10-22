@@ -4,38 +4,55 @@
  <form action="/user/insert_user" method="post">
   
 <div class="form-group">
-  <label for="id">ID</label>
+  <label for="id">USER ID</label>
   <input type="number"
-    class="form-control" name="id" id="" aria-describedby="helpId" placeholder=""value="">
-  <small id="helpId" class="form-text text-muted">ID</small> 
+    class="form-control" name="id" id="" aria-describedby="helpId" disabled="disabled" placeholder="Product Id is Autorun" value="">
+  <small id="helpId" class="form-text text-muted">USER ID</small> 
 </div>
 
   <div class="form-group">
-    <label for="email">email</label>
+    <label for="email">Email</label>
     <input type="text"
       class="form-control" name="email" id="" aria-describedby="helpId" placeholder=""value="">
     <small id="helpId" class="form-text text-muted">Email</small>
   </div>
 
   <div class="form-group">
-    <label for="password">password</label>
+    <label for="password">Password</label>
     <input type="text"
       class="form-control" name="password" id="" aria-describedby="helpId" placeholder=""value="">
     <small id="helpId" class="form-text text-muted">Password</small>
     </div>
     
-
-    <div class="form-group">
-        <label for="created_at">Created_At</label>
-        <input type="text" class="form-control" value="<%= time %>" name="time" id="" aria-describedby="helpId" placeholder="" >
-        <small id="helpId" class="form-text text-muted">Created_At</small>
-      </div>
-
-
-    <a name="" id="" class="btn " href="/users" role="button">Cancel</a>
-    <button type="submit" class="btn btn-success">Save</button>
+<div>
+    <html>
+      <head>
+        
+          <meta charset="utf-8" />
     
+          <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+          <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+      </head>
 
-    </form>
+      <body>
+            <label for="create_at">Time Create</label>
+          <input name="t" id="input" width="312" />
+          <script>
+              $('#input').datetimepicker({ footer: true, modal: true, format:'mm-dd-yyyy hh:mm' });
+          </script>
 
-  <% include ../partials/footer %>
+      </body>
+      </html>
+    </div>
+<br>
+
+  <button type="submit" class="btn btn-success">Save</button>
+  <a name="" id="" class="btn " href="/users" role="button">Cancel</a>
+</form>
+<% include ../partials/footer %>
+
+
+
+
+   

@@ -179,7 +179,22 @@ app.get('/users/:id', function(req, res) {
       })
   });
 
-  
+  //update user
+
+app.post('/users/update',function (req,res) {
+    var id =req.body.id;
+    var email =req.body.email;
+    var password =req.body.password;
+    var sql=`update users set email='${email}',password='${password}' where id=${id}`;
+    // res.send(sql)
+    //db.none
+    db.query(sql);
+        res.redirect('/users')    
+    db.close();
+    })
+
+
+
   // Delete user
 app.get('/user_delete/:pid',function (req, res) {
     var id = req.params.pid;
@@ -190,7 +205,7 @@ app.get('/user_delete/:pid',function (req, res) {
     db.any(sql)
         .then(function(data){
             console.log('DATA:'+data);
-            res.redirect('page/users');
+            res.redirect('/users');
     
         })
         .catch(function(data){
@@ -200,35 +215,26 @@ app.get('/user_delete/:pid',function (req, res) {
  });
 
 
- //update user
+ 
 
-app.post('/users/update',function (req,res) {
-    var id =req.body.id;
-    var email =req.body.email;
-    var password =req.body.password;
-    var sql=`update users set email='${email}',password='${password}' where id=${id}`;
-    // res.send(sql)
-    //db.none
-    db.query(sql);
-        res.redirect('pages/users')    
-    db.close();
-    })
-
-
+   //link add user
+app.get('/insert_user', function (req, res) {
+   
+    res.render('pages/insert_user');
+});
+ 
  //add user
-
 app.post('/user/insert_user', function (req, res) {
-    var id = req.body.id;
     var email =req.body.email;
     var password =req.body.password;
-    var time =req.body.time;
-    var sql = `INSERT INTO users (id,email,password,created_at) VALUES ('${id}', '${email}', '${password}', '${time}')`;
+    var time =req.body.t;
+    var sql = `INSERT INTO "public"."users" (email,password,created_at) VALUES ( '${email}', '${password}', '${time}')`;
     //db.none
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('pages/users')
+            res.redirect('/users')
         })
 
         .catch(function (error) {
@@ -236,11 +242,7 @@ app.post('/user/insert_user', function (req, res) {
         })
 });
 
-//time add user
-app.get('/insert_user', function (req, res) {
-    var time = moment().format();
-    res.render('pages/insert_user',{ time: time});
-});
+
 
 
 //report user

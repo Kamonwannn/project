@@ -25,7 +25,9 @@
       class="form-control" name="price" id="" aria-describedby="helpId" placeholder=""value="">
     <small id="helpId" class="form-text text-muted">Price</small>
     </div>
-    
+    <br>
+
+    <div>
     <html>
         <head>
             <meta charset="utf-8" />
@@ -35,17 +37,18 @@
             <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
         </head>
         <body>
-          
+           <label for="create_at">Time Create</label>
             <input name="t" id="input" width="312" />
             <script>
                 $('#input').datetimepicker({ footer: true, modal: true, format:'mm-dd-yyyy hh:mm' });
             </script>
 
         </body>
-        </html>
+        </html></div>
 <br>
 
     <button type="submit" class="btn btn-success">Save</button>
+    <a name="" id="" class="btn " href="/users" role="button">Cancel</a>
 
 </form>
 <% include ../partials/footer %>

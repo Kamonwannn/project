@@ -111,22 +111,23 @@ app.get('/product_delete/:pid',function (req, res) {
 
 //link add product
 app.get('/insert_product', function (req, res) {
-    
+   
     res.render('pages/insert_product');
 });
 
 // ----------------------------
 app.post('/product/insert_product',function (req, res) {
-    var id = req.body.id;
+    
     var title = req.body.title;
     var price = req.body.price;
-    var time = req.body.time;
-    var sql =  'INSERT INTO "public"."products" (title,price,created_at) VALUES('title','price','time')';
-    
+    var time = req.body.t;
+    var sql = `INSERT INTO public.products (title,price,created_at) VALUES ( '${title}', '${price}', '${time}')`;
+    console.log(sql);
     db.any(sql)
     .then(function (data) {
         console.log('DATA:' + data);
         res.redirect('/products')
+        
     })
 
     .catch(function (error) {

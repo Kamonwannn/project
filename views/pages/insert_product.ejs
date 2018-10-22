@@ -8,7 +8,7 @@
 <div class="form-group">
   <label for="id">ID</label>
   <input type="number"
-    class="form-control" name="id" id="" aria-describedby="helpId" placeholder="plese input product id" value="">
+    class="form-control" name="id" id="" aria-describedby="helpId" disabled="disabled" placeholder="Product Id is Autorun" value="">
   <small id="helpId" class="form-text text-muted">Product ID</small>
 </div>
 
@@ -35,14 +35,16 @@
             <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
         </head>
         <body>
-            <input name="time" id="input" width="312" />
+          
+            <input name="t" id="input" width="312" />
             <script>
-                $('#input').datetimepicker({ footer: true, modal: true });
+                $('#input').datetimepicker({ footer: true, modal: true, format:'mm-dd-yyyy hh:mm' });
             </script>
+
         </body>
         </html>
 <br>
-      
+
     <button type="submit" class="btn btn-success">Save</button>
 
 </form>

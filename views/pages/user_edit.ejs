@@ -26,9 +26,12 @@
         <small id="helpId" class="form-text text-muted">Password</small>
       </div>
       
+      <button type="submit" class="btn btn-primary"> Save </button>
+
+      <a href='/products'><button type="button" class="btn btn-warning" >Cancle</button></a>
       
-    <button type="submit" class="btn">Cancel</button>
-    <button type="submit" class="btn btn-success">Save</button>
+      <a name="" id="" class="btn btn-danger" href="/product_delete/<%= product.id %>" onclick="return confirm('Are you sure you want to delete?')" role="button">Delete</a></td>
+      
     
     </form>
     
